@@ -10,4 +10,6 @@ Uses the I2C interface for data transfer.
 Intended to be run on a Dragonfly development board:
 
  https://www.tindie.com/products/tleracorp/dragonfly-stm32l47696-development-board/
+ 
+ ![breadboard image](https://user-images.githubusercontent.com/6698410/85341294-a71fd300-b49c-11ea-8dcb-131431fecc0f.jpg)
    
