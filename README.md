@@ -10,5 +10,7 @@ Intended to be run on a [Dragonfly](https://www.tindie.com/products/tleracorp/dr
 Breakout board design [files](https://oshpark.com/shared_projects/dQtm1Bbl) are open-source and available in the OSH Park shared space.
 
 ![breadboard image](https://user-images.githubusercontent.com/6698410/85341294-a71fd300-b49c-11ea-8dcb-131431fecc0f.jpg)
+
+Copyright 2020 Tlera Corporation. May be used by anyone with proper attribution.
  
    
