@@ -67,14 +67,18 @@ void MMC5983MA::reset()
 void MMC5983MA::init(uint8_t MODR, uint8_t MBW, uint8_t MSET)
 {
  // enable data ready interrupt (bit2 == 1), enable auto set/reset (bit 5 == 1)
+ // this set/reset is a low current sensor offset measurement for normal use
  _i2c_bus->writeByte(MMC5983MA_ADDRESS, MMC5983MA_CONTROL_0, 0x20 | 0x04);  
  
  // set magnetometer bandwidth
  _i2c_bus->writeByte(MMC5983MA_ADDRESS, MMC5983MA_CONTROL_1, MBW);  
 
- // enable continuous measurement mode (bit 3 == 1), set sample rate
- // enable automatic Set/Reset (bit 8 == 1), set set/reset rate
- _i2c_bus->writeByte(MMC5983MA_ADDRESS, MMC5983MA_CONTROL_2, 0x80 | (MSET << 4) | 0x08 | MODR);  
+// enable continuous measurement mode (bit 3 == 1), set sample rate
+ // enable automatic Set/Reset (bit 7 == 1), set set/reset rate
+ // this set/reset is a high-current "deGaussing" that should be used only to recover from 
+ // high magnetic field detuning of the magnetoresistive film
+// _i2c_bus->writeByte(MMC5983MA_ADDRESS, MMC5983MA_CONTROL_2, 0x80 | (MSET << 4) | 0x08 | MODR);  
+ _i2c_bus->writeByte(MMC5983MA_ADDRESS, MMC5983MA_CONTROL_2, 0x08 | MODR);  
 }
 
 
